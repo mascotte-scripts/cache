@@ -16,14 +16,16 @@ Standalone
 
 Any script that you wish to utilize to use the cache needs to call the cache table at the start of it by placing this code at the top of the client file:
 
-`Citizen.CreateThread(function()
+` 
+Citizen.CreateThread(function()
 
 	while Cache == nil do
 		TriggerEvent('mascotte-cache:getCacheData', function(CacheData) Cache = CacheData end)
 		Citizen.Wait(0)
 	end
 
-end)`
+end)
+`
 
 ### Step 2 - fxmanifest.lua 
 
