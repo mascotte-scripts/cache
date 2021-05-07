@@ -8,7 +8,6 @@ version '1.0.0'
 -- What to run
 client_script 'client/cl_cache.lua'
     
-server_script 'server/sv_cache.lua'
 
 
 exports {
