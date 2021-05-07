@@ -8,7 +8,7 @@ This resource saves natives into a cache table reducing the overall number of se
 
 ## Requirements
 
-Standalone
+*Standalone
 
 # Installation
 
