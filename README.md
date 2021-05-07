@@ -1,6 +1,6 @@
 # Introduction
 
-This resource saves natives into a cache table reducing the overall number of server requests from the Client. This gives an all round boost to overall server performance and decreases the loading times of any scripts that use the cache.
+This resource saves natives into a cache table reducing the overall number of native requests from the client. This gives an all round boost to overall server performance and decreases the loading times of any scripts that use the cache.
 
 ## Example
 
