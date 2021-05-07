@@ -1,2 +1,46 @@
-# mascotte-cache
-A FiveM native cache that reduces the number of native calls from server to client!
+# Introduction
+
+This resource saves natives into a cache table reducing the overall number of server requests from the Client. This gives an all round boost to overall server performance and decreases the loading times of any scripts that use the cache.
+
+## Example
+
+[The esx_policejob client file](https://github.com/esx-framework/esx_policejob/blob/master/client/main.lua) calls the `PlayerPedId()`native 18 times - the same data can be retrieved from a single call through `Cache.PlayerPedId`
+
+## Requirements
+
+Standalone
+
+## Installation
+
+### Step 1 - Calling The Cache Data
+
+Any script that you wish to utilize to use the cache needs to call the cache table at the start of it by placing this code at the top of the client file:
+
+`Citizen.CreateThread(function()
+
+	while Cache == nil do
+		TriggerEvent('mascotte-cache:getCacheData', function(CacheData) Cache = CacheData end)
+		Citizen.Wait(0)
+	end
+
+end)`
+
+### Step 2 - fxmanifest.lua 
+
+Insert this line into client_scripts in the fxmanifest.lua of the script you wish to utilize the cache
+
+`"@mascotte-cache/client/cl_cache.lua",`
+
+### Step 3 - Replacing Native Calls With Cached Data
+
+You'll need to do this manually by yourself. Here's an example of what you'll need to do:
+
+So here we have GetPlayerPed(-1) saved into the cache:
+
+`Cache.GetPlayerPedSource = GetPlayerPed(-1)`
+
+Anywhere you see `GetPlayerPed(-1)` in your script you'll need to replace it with Cache.GetPlayerPedSource
+
+### Step 4 - server.cfg
+
+Place `start mascotte-cache` before your framework/scripts
