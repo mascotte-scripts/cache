@@ -21,16 +21,18 @@ Cache.GetPlayerPed = GetPlayerPed(Cache.PlayerFromServerId)
 Cache.GetPlayerPedSource = GetPlayerPed(-1)
 
 
-Cache.ClientGetEntityCoords = GetEntityCoords(Cache.ClientPedId)
+Cache.ClientGetEntityCoords = GetEntityCoords(Cache.ClientPedId) -- Get the player coords
 
 Cache.IsPedOnFoot = IsPedOnFoot(Cache.PlayerPedId) -- True/False Is the player on foot or in a vehicle
 
-Cache.IsPedSittingInAnyVehicle = IsPedSittingInAnyVehicle(Cache.ClientPedId)
+Cache.PlayersLastVehicle = GetPlayersLastVehicle() -- Last vehicle player was in
+Cache.IsPedSittingInAnyVehicle = IsPedSittingInAnyVehicle(Cache.ClientPedId) -- True/False Is the player sitting in a vehicle?
 Cache.GetVehiclePedIsCurrentlyIn = GetVehiclePedIsIn(Cache.ClientPedId, false) -- Vehicle Player is currently in 
 Cache.IsPedInAnyVehicle = IsPedInAnyVehicle(Cache.PlayerPedId, false) -- True/False is player in any kind of vehicle
 
 
 -- Static Data, so in other words, natives that will return the same data each time
+-- It's ran through this thread so we can set it to the data above in the cache table
 --
 -- Don't remove anything from here unless you know what you are doing!
 
@@ -51,6 +53,7 @@ end
 end)
 
 -- Dynamic Data. Data that changes regular and needs to be updated more often
+-- It's ran through this thread so we can set it to the data above in the cache table
 --
 -- Don't remove anything from here unless you know what you are doing!
 
@@ -68,6 +71,8 @@ Citizen.CreateThread(function()
         Cache.IsPedOnFoot = IsPedOnFoot(Cache.PlayerPedId)
 
         Cache.IsPedSittingInAnyVehicle = IsPedSittingInAnyVehicle(Cache.ClientPedId)
+
+        Cache.PlayersLastVehicle = GetPlayersLastVehicle()
 
         Citizen.Wait(1000)
     
