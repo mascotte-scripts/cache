@@ -51,5 +51,5 @@ Place `start mascotte-cache` before your framework/scripts
 
 I'll update this as regularly as I can, but if you wish to add your own cached values then all you need to do is follow this format:
 
-1. Cache.YourNameHere = NativeYouWantToCache() -- Add undeneath the `Cache = {}`table
+1. Cache.YourNameHere = NativeYouWantToCache() -- Add undeneath the `Cache = {}` table
 2. Cache.YourNameHere = NativeYouWantToCache() -- Add into one of the threads. If it's dynamic data make sure it doesn't go in the first thread!
