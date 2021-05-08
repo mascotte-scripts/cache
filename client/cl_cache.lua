@@ -18,7 +18,7 @@ Cache.ClientPlayerId = PlayerId()
 Cache.ClientPedId = PlayerPedId()
 Cache.PlayerFromServerId = GetPlayerFromServerId(Cache.ClientPlayerId)
 Cache.GetPlayerPed = GetPlayerPed(Cache.PlayerFromServerId)
-Cache.GetPlayerPedSource = GetPlayerPed(-1)
+
 
 
 Cache.ClientGetEntityCoords = GetEntityCoords(Cache.ClientPedId) -- Get the player coords
@@ -44,9 +44,9 @@ while true do
     Cache.ClientPedId = PlayerPedId()
     Cache.PlayerFromServerId = GetPlayerFromServerId(Cache.ClientPlayerId)
     Cache.GetPlayerPed = GetPlayerPed(Cache.PlayerFromServerId)
-    Cache.GetPlayerPedSource = GetPlayerPed(-1)
+   
 
-    Citizen.Wait(30000) -- Might still be a little too fast, I think this data doesn't/shouldn't change?
+    Citizen.Wait(3000) -- Might still be a little too fast, I think this data doesn't/shouldn't change?
 
 end
 
