@@ -16,15 +16,12 @@ This resource saves natives into a cache table reducing the overall number of na
 
 Any script that you wish to utilize to use the cache needs to call the cache table at the start of it by placing this code at the top of the client file inside of a thread:
 
-` 
-
 
 	while Cache == nil do
 		TriggerEvent('mascotte-cache:getCacheData', function(CacheData) Cache = CacheData end)
 		Citizen.Wait(0)
 	end
 
-`
 
 ### Step 2 - fxmanifest.lua 
 
