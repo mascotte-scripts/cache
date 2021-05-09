@@ -35,9 +35,9 @@ You'll need to do this manually by yourself. Here's an example of what you'll ne
 
 So here we have GetPlayerPed(-1) saved into the cache:
 
-`Cache.GetPlayerPedSource = GetPlayerPed(-1)`
+`Cache.ClientPedId = PlayerPedId()`
 
-Anywhere you see `GetPlayerPed(-1)` in your script you'll need to replace it with Cache.GetPlayerPedSource
+Anywhere you see `PlayerPedId()` in your script you'll need to replace it with Cache.ClientPedId
 
 ### Step 4 - server.cfg
 
