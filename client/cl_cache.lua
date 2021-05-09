@@ -22,29 +22,18 @@ Cache.GetVehiclePedIsCurrentlyIn = GetVehiclePedIsIn(Cache.ClientPedId, false) -
 Cache.IsPedInAnyVehicle = IsPedInAnyVehicle(Cache.PlayerPedId, false) -- True/False is player in any kind of vehicle
 
 
-
-
-Citizen.CreateThread(function()
-
-while true do
-
-    Cache.ClientPlayerId = PlayerId()
-    Cache.ClientPedId = PlayerPedId()
-    Cache.PlayerFromServerId = GetPlayerFromServerId(Cache.ClientPlayerId)
-    Cache.GetPlayerPed = GetPlayerPed(Cache.PlayerFromServerId)
-    
-    Citizen.Wait(1000) -- Might still be a little too fast, I think this data doesn't/shouldn't change?
-
-end
-
-end)
-
-
-
 Citizen.CreateThread(function()
 
     while true do
+   
+            
+         Cache.ClientPlayerId = PlayerId()
+   
+         Cache.ClientPedId = PlayerPedId()
     
+         Cache.PlayerFromServerId = GetPlayerFromServerId(Cache.ClientPlayerId)
+   
+         Cache.GetPlayerPed = GetPlayerPed(Cache.PlayerFromServerId)
     
         Cache.ClientGetEntityCoords = GetEntityCoords(Cache.ClientPedId)
     
@@ -64,7 +53,7 @@ Citizen.CreateThread(function()
 
         Cache.ClientGetEntityHeading = GetEntityHeading(Cache.ClientPedId)
 
-        Citizen.Wait(1000)
+        Citizen.Wait(500)
     
     end
 
