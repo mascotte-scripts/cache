@@ -2,20 +2,27 @@
 
 Cache = {}
 
+-- Player/Ped Id
+
 Cache.ClientPlayerId = PlayerId()
 Cache.ClientPedId = PlayerPedId()
 Cache.PlayerFromServerId = GetPlayerFromServerId(Cache.ClientPlayerId)
 Cache.GetPlayerPed = GetPlayerPed(Cache.PlayerFromServerId)
 
 
+-- Coordinates
+
 Cache.ClientGetEntityCoords = GetEntityCoords(Cache.ClientPedId) -- Get the player coords
 Cache.ClientGetEntityHeading = GetEntityHeading(Cache.ClientPedId) -- Get the player heading
 
-Cache.IsInCopCar = IsPedInAnyPoliceVehicle(Cache.ClientPedId) -- True/False Is the Player In a Police Vehicle
-Cache.IsPedOnFoot = IsPedOnFoot(Cache.PlayerPedId) -- True/False Is the player on foot or in a vehicle
+-- Menu Stuff
 
 Cache.PauseMenuStatus = IsPauseMenuActive() -- True/False Is The pause menu open or closed?
 
+-- Vehicle
+
+Cache.IsInCopCar = IsPedInAnyPoliceVehicle(Cache.ClientPedId) -- True/False Is the Player In a Police Vehicle
+Cache.IsPedOnFoot = IsPedOnFoot(Cache.PlayerPedId) -- True/False Is the player on foot or in a vehicle
 Cache.PlayersLastVehicle = GetPlayersLastVehicle() -- Last vehicle player was in
 Cache.IsPedSittingInAnyVehicle = IsPedSittingInAnyVehicle(Cache.ClientPedId) -- True/False Is the player sitting in a vehicle?
 Cache.GetVehiclePedIsCurrentlyIn = GetVehiclePedIsIn(Cache.ClientPedId, false) -- Vehicle Player is currently in 
@@ -26,6 +33,7 @@ Citizen.CreateThread(function()
 
     while true do
    
+        -- Player/Ped Id
             
         Cache.ClientPlayerId = PlayerId()
    
@@ -34,9 +42,19 @@ Citizen.CreateThread(function()
         Cache.PlayerFromServerId = GetPlayerFromServerId(Cache.ClientPlayerId)
    
         Cache.GetPlayerPed = GetPlayerPed(Cache.PlayerFromServerId)
+            
+        -- Coordinates    
     
         Cache.ClientGetEntityCoords = GetEntityCoords(Cache.ClientPedId)
-    
+            
+        Cache.ClientGetEntityHeading = GetEntityHeading(Cache.ClientPedId) 
+            
+        -- Menu Stuff
+            
+        Cache.PauseMenuStatus = IsPauseMenuActive()    
+            
+        -- Vehicle
+            
         Cache.GetVehiclePedIsCurrentlyIn = GetVehiclePedIsIn(Cache.ClientPedId, false)
     
         Cache.IsPedInAnyVehicle = IsPedInAnyVehicle(Cache.ClientPlayerPedId, false)
@@ -49,9 +67,9 @@ Citizen.CreateThread(function()
 
         Cache.PlayersLastVehicle = GetPlayersLastVehicle()
 
-        Cache.PauseMenuStatus = IsPauseMenuActive()
+        
 
-        Cache.ClientGetEntityHeading = GetEntityHeading(Cache.ClientPedId)
+        
 
         Citizen.Wait(200)
     
