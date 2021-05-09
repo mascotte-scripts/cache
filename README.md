@@ -33,9 +33,11 @@ Insert this line into client_scripts in the fxmanifest.lua of the script you wis
 
 You'll need to do this manually by yourself. Here's an example of what you'll need to do:
 
-So here we have GetPlayerPed(-1) saved into the cache:
+So here we have PlayerPedId() saved into the cache:
+
 
 `Cache.ClientPedId = PlayerPedId()`
+
 
 Anywhere you see `PlayerPedId()` in your script you'll need to replace it with `Cache.ClientPedId`
 
