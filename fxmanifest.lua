@@ -6,7 +6,12 @@ description 'Simple resource that caches the most repetitive natives giving a hu
 version '1.0.0'
 
 -- What to run
-client_script 'client/cl_cache.lua'
+client_scripts { 
+	
+	'client/common.lua',
+	'client/cl_cache.lua'
+	
+	}
     
 
 
