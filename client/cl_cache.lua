@@ -1,8 +1,5 @@
 -- Created by Mascotte45
 
--- Default cache data 
---
--- Don't remove anything from here unless you know what you are doing!
 AddEventHandler('mascotte-cache:getCacheData', function(cb)
 	cb(Cache)
 end)
@@ -20,10 +17,13 @@ Cache.PlayerFromServerId = GetPlayerFromServerId(Cache.ClientPlayerId)
 Cache.GetPlayerPed = GetPlayerPed(Cache.PlayerFromServerId)
 
 
-
 Cache.ClientGetEntityCoords = GetEntityCoords(Cache.ClientPedId) -- Get the player coords
+Cache.ClientGetEntityHeading = GetEntityHeading(Cache.ClientPedId) -- Get the player heading
 
+Cache.IsInCopCar = IsPedInAnyPoliceVehicle(Cache.ClientPedId) -- True/False Is the Player In a Police Vehicle
 Cache.IsPedOnFoot = IsPedOnFoot(Cache.PlayerPedId) -- True/False Is the player on foot or in a vehicle
+
+Cache.PauseMenuStatus = IsPauseMenuActive() -- True/False Is The pause menu open or closed?
 
 Cache.PlayersLastVehicle = GetPlayersLastVehicle() -- Last vehicle player was in
 Cache.IsPedSittingInAnyVehicle = IsPedSittingInAnyVehicle(Cache.ClientPedId) -- True/False Is the player sitting in a vehicle?
@@ -31,10 +31,7 @@ Cache.GetVehiclePedIsCurrentlyIn = GetVehiclePedIsIn(Cache.ClientPedId, false) -
 Cache.IsPedInAnyVehicle = IsPedInAnyVehicle(Cache.PlayerPedId, false) -- True/False is player in any kind of vehicle
 
 
--- Static Data, so in other words, natives that will return the same data each time
--- It's ran through this thread so we can set it to the data above in the cache table
---
--- Don't remove anything from here unless you know what you are doing!
+
 
 Citizen.CreateThread(function()
 
@@ -44,7 +41,7 @@ while true do
     Cache.ClientPedId = PlayerPedId()
     Cache.PlayerFromServerId = GetPlayerFromServerId(Cache.ClientPlayerId)
     Cache.GetPlayerPed = GetPlayerPed(Cache.PlayerFromServerId)
-   
+    Cache.GetPlayerPedSource = GetPlayerPed(-1)
 
     Citizen.Wait(1000) -- Might still be a little too fast, I think this data doesn't/shouldn't change?
 
@@ -52,10 +49,7 @@ end
 
 end)
 
--- Dynamic Data. Data that changes regular and needs to be updated more often
--- It's ran through this thread so we can set it to the data above in the cache table
---
--- Don't remove anything from here unless you know what you are doing!
+
 
 Citizen.CreateThread(function()
 
@@ -72,7 +66,13 @@ Citizen.CreateThread(function()
 
         Cache.IsPedSittingInAnyVehicle = IsPedSittingInAnyVehicle(Cache.ClientPedId)
 
+        Cache.IsInCopCar = IsPedInAnyPoliceVehicle(Cache.ClientPedId)
+
         Cache.PlayersLastVehicle = GetPlayersLastVehicle()
+
+        Cache.PauseMenuStatus = IsPauseMenuActive()
+
+        Cache.ClientGetEntityHeading = GetEntityHeading(Cache.ClientPedId)
 
         Citizen.Wait(1000)
     
