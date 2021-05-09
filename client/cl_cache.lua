@@ -46,7 +46,7 @@ while true do
     Cache.GetPlayerPed = GetPlayerPed(Cache.PlayerFromServerId)
    
 
-    Citizen.Wait(3000) -- Might still be a little too fast, I think this data doesn't/shouldn't change?
+    Citizen.Wait(1000) -- Might still be a little too fast, I think this data doesn't/shouldn't change?
 
 end
 
