@@ -37,7 +37,7 @@ So here we have GetPlayerPed(-1) saved into the cache:
 
 `Cache.ClientPedId = PlayerPedId()`
 
-Anywhere you see `PlayerPedId()` in your script you'll need to replace it with Cache.ClientPedId
+Anywhere you see `PlayerPedId()` in your script you'll need to replace it with `Cache.ClientPedId`
 
 ### Step 4 - server.cfg
 
