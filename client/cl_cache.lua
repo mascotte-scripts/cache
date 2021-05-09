@@ -41,8 +41,7 @@ while true do
     Cache.ClientPedId = PlayerPedId()
     Cache.PlayerFromServerId = GetPlayerFromServerId(Cache.ClientPlayerId)
     Cache.GetPlayerPed = GetPlayerPed(Cache.PlayerFromServerId)
-    Cache.GetPlayerPedSource = GetPlayerPed(-1)
-
+    
     Citizen.Wait(1000) -- Might still be a little too fast, I think this data doesn't/shouldn't change?
 
 end
