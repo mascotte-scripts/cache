@@ -1,4 +1,9 @@
-# Introduction
+# (WIP) Work In Progress!
+
+This script isn't yet 100% complete. If you have anything you'd like to contribute towards the project feel free to submit a pull request!
+
+
+## Introduction
 
 This resource saves natives into a cache table reducing the overall number of native requests from the client. This gives an all round boost to overall server performance and decreases the loading times of any scripts that use the cache.
 
