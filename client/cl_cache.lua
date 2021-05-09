@@ -66,9 +66,6 @@ Citizen.CreateThread(function()
         Cache.IsInCopCar = IsPedInAnyPoliceVehicle(Cache.ClientPedId)
 
         Cache.PlayersLastVehicle = GetPlayersLastVehicle()
-
-        
-
         
 
         Citizen.Wait(200)
