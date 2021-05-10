@@ -34,7 +34,7 @@ Let's say you want to return the `PlayerPed()` - we can call it through an expor
 
 Insert this line into client_scripts in the fxmanifest.lua of the script you wish to utilize the cache
 
-`"@mascotte-cache/client/cl_cache.lua",`
+`"@cache/client/cl_cache.lua",`
 
 ### Step 3 - Replacing Native Calls With Cached Data
 
