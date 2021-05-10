@@ -9,7 +9,7 @@ This resource saves natives into a cache table reducing the overall number of se
 
 ### **Example:**
 
-[The esx_policejob client file](https://github.com/esx-framework/esx_policejob/blob/master/client/main.lua) calls the `PlayerPedId()` native 18 times - the same data can be retrieved from a single call through `Cache.PlayerPedId`
+[The esx_policejob client file](https://github.com/esx-framework/esx_policejob/blob/master/client/main.lua) calls the `PlayerPed()` native 18 times - the same data can be retrieved from a single call through `Cache.PlayerPed`
 
 ***(Note: ESX is not a requirement for this script)***
 
@@ -17,13 +17,12 @@ In a nutshell, it cuts the amount of native calls by a huge amount depending on 
 
 This is an ongoing *work in progress* - so any contribution or input will always be greatly appreciated!
 
-[You can download the script here from github](https://github.com/KingMascotte/mascotte-cache)
 
 # Installation
 
 ### Step 1 - Calling The Cache Data
 
-Let's say you want to return the `PlayerPedId()` - we can call it through an export from the script by using:
+Let's say you want to return the `PlayerPed()` - we can call it through an export from the script by using:
 
 `exports.cache:requestCache().PlayerPed`
 
@@ -45,7 +44,7 @@ So here we havePlayerPedId() saved into the cache:
 
 `Cache.PlayerPed = PlayerPedId()`
 
-Anywhere you see `PlayerPedId()` in your script you'll need to replace it with `Cache.PlayerPed`
+Anywhere you see `PlayerPedId()` in your script you'll need to replace it with `exports.cache:requestCache().PlayerPed`
 
 ### Step 4 - server.cfg
 
