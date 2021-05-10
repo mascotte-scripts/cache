@@ -7,7 +7,7 @@ This script isn't yet 100% complete. If you have anything you'd like to contribu
 
 This resource saves natives into a cache table reducing the overall number of server requests from the Client. This gives an all round boost to overall server performance and decreases the loading times of any scripts that use the cache.
 
- For Example:
+### **Example:**
 
 [The esx_policejob client file](https://github.com/esx-framework/esx_policejob/blob/master/client/main.lua) calls the `PlayerPedId()` native 18 times - the same data can be retrieved from a single call through `Cache.PlayerPedId`
 
