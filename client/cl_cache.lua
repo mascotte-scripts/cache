@@ -5,16 +5,26 @@ local Cache = {}
 CreateThread(function()
 
     while true do
+            
+       -- Player & ped Identifiers
 
         Cache.PlayerId = PlayerId()
 
         Cache.PlayerPed = PlayerPedId()
 
         Cache.PlayerServerId = GetPlayerFromServerId(Cache.PlayerId)
+            
+        Cache.IsPlayerDead = IsPlayerDead(Cache.ClientPlayerId)
+            
+            
+       -- Cordinates & Heading
 
         Cache.PlayerCoords = GetEntityCoords(Cache.PlayerPed)
 
         Cache.PlayerHeading = GetEntityHeading(Cache.PlayerPed)
+            
+            
+        -- Vehicle 
 
         Cache.PlayerVehicle = GetVehiclePedIsIn(Cache.PlayerPed, false)
 
