@@ -26,7 +26,7 @@ Let's say you want to return the `PlayerPed()` - we can call it through an expor
 
 `exports.cache:requestCache().PlayerPed`
 
-**Make sure that the resource name doesn't have a hyphen in the name (the - symbol) or it'll return an error of:**
+**Make sure that the resource name of this resource doesn't have a hyphen in the name (the - symbol) or it'll return an error of:**
 
   `attempt to index a nil value (global 'cache')`
 
